@@ -35,3 +35,6 @@
 /config/master.key
 
 .idea
+
+# Raphael's files :
+.env.rb
