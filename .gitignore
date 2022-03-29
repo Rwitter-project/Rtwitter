@@ -38,3 +38,8 @@
 
 # Raphael's files :
 .env.rb
+
+# William's files:
+.env_exemple.rb
+/db/schema.rb
+Gemfile.lock
