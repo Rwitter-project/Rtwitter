@@ -4,11 +4,15 @@
 
 <div id="rweets">
   <% @rweets.each do |rweet| %>
-    <%= render rweet %>
-    <p>
-      <%= link_to "Show this rweet", rweet %>
-    </p>
+    <%= rweet.body %></br>
   <% end %>
+
+  <%# @rweets.each do |rweet| %>
+    <%#= render rweet %>
+<!--    <p>-->
+      <%#= link_to "Show this rweet", rweet %>
+<!--    </p>-->
+  <%# end %>
 </div>
 
 <%= link_to "New rweet", new_rweet_path %>
