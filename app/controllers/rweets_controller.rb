@@ -1,4 +1,6 @@
 class RweetsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create new destroy update]
+
   def index
     @rweets = Rweet.all
   end
