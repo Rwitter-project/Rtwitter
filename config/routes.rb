@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'logout' => 'sessions#destroy'
+  get 'profil' => 'welcome#profil'
 end
