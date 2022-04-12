@@ -1,4 +1,4 @@
-# Welcome to Rwitter
+# Wellcom to Rwitter
 
 # Config :  
 
