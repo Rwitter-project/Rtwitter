@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_29_095119) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_05_071154) do
   create_table "rweets", force: :cascade do |t|
     t.integer "user_id"
     t.string "body"
@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_29_095119) do
     t.string "last_name"
     t.string "username"
     t.string "description"
-    t.string "localisation"
+    t.string "location"
     t.string "certified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
