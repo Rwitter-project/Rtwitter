@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Rweets</h1>
+
+<div id="rweets">
+  <% @rweets.each do |rweet| %>
+    <%= rweet.body %></br>
+  <% end %>
+
+  <%# @rweets.each do |rweet| %>
+    <%#= render rweet %>
+<!--    <p>-->
+      <%#= link_to "Show this rweet", rweet %>
+<!--    </p>-->
+  <%# end %>
+</div>
+
+<%= link_to "New rweet", new_rweet_path %>

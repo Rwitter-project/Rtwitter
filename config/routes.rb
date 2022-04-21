@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   get 'logout' => 'sessions#destroy'
   get 'profil' => 'welcome#profil'
+  get 'posts' => 'rweets#index'
 end
