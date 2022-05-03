@@ -7,9 +7,8 @@
     <p><%= User.find(rweet.user.id).email %></p>
     <p><%= rweet.body %></p>
     <p><%= rweet.likes.count %> <%= (rweet.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    <p><% if current_user == rweet.user %>
+    <p>
       <%= link_to "See More", rweet_path(rweet.id), :method => :get %>
-    <% end %></p><br>
   <% end %>
 
   <%# @rweets.each do |rweet| %>
