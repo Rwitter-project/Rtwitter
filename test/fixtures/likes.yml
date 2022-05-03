@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rweet: one
+  user: one
+
+two:
+  rweet: two
+  user: two

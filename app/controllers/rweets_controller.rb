@@ -6,6 +6,10 @@ class RweetsController < ApplicationController
     @rweets = Rweet.all
   end
 
+  def show
+    @rweet = Rweet.find(params[:id])
+  end
+
   def new
     @rweet = Rweet.new
   end
