@@ -75,3 +75,6 @@ end
 # Devise is a flexible authentication solution for Rails based on Warden. https://github.com/heartcombo/devise
 gem 'devise'
 
+gem 'bootstrap', '~> 5.1.3'
+
+
