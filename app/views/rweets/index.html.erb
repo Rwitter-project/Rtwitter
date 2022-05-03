@@ -5,6 +5,9 @@
 <div id="rweets">
   <% @rweets.each do |rweet| %>
     <%= rweet.body %></br>
+    <% if current_user == rweet.user %>
+      <%= link_to "Delete", rweet_path(rweet.id), :confirm => "Are you sure?", :method => :delete %>
+    <% end %>
   <% end %>
 
   <%# @rweets.each do |rweet| %>

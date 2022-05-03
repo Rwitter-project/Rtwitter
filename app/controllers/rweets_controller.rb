@@ -1,5 +1,6 @@
 class RweetsController < ApplicationController
   before_action :authenticate_user!, only: %i[create new destroy update]
+  protect_from_forgery with: :null_session
 
   def index
     @rweets = Rweet.all
@@ -17,6 +18,12 @@ class RweetsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @rweet = Rweet.find(params[:id])
+    @rweet.destroy
+    redirect_to root_path, :notice => "Your rweet has been deleted"
   end
 
   private
