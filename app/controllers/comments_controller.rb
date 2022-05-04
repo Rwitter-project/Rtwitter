@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @rweet, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @rweet }
       end
     end
   end

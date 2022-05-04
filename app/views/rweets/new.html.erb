@@ -1,9 +1,90 @@
-<h1>New rweet</h1>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 
-<%= render "form", rweet: @rweet %>
 
-<br>
 
-<div>
-  <%= link_to "Back to rweets", rweets_path %>
+
+
+
+<!-- beginning of sidebar -->
+
+<div class="sidebar">
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> home </span>
+    <h2>Home</h2>
+  </div>
+
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> search </span>
+    <h2>Explore</h2>
+  </div>
+
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> notifications_none </span>
+    <h2>Notification</h2>
+  </div>
+
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> mail_outline </span>
+    <h2>Messages</h2>
+  </div>
+
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> bookmark_border </span>
+    <h2>Bookmarks</h2>
+  </div>
+
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> list_alt </span>
+    <h2>Lists</h2>
+  </div>
+
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> perm_identity </span>
+    <h2>Profile</h2>
+  </div>
+
+  <div class="sidebarOption active">
+    <span class="material-symbols-outlined"> more_horiz </span>
+    <h2>More</h2>
+  </div>
+
+
+  <%= button_to "Rweet", new_rweet_path, :class => "sidebar-rweet" %>
+
+  <!--  <button class="sidebar-rweet">Rweet</button>-->
+</div>
+
+<!-- end of sidebar -->
+
+
+<div class="feed">
+  <div class="feed_header">
+    <h2>Send a new Rweet now !</h2>
+  </div>
+
+
+  <div class="rweet-box">
+
+      <div class="rweetbox-input">
+        <%= image_tag("profile.png", alt: "Example Image", class: "img") %>
+        <!--        <span class="material-symbols-outlined"> account_circle </span>-->
+
+<!--        <input type="text" placeholder="What's new?">-->
+
+
+        <%= render "form", rweet: @rweet %>
+
+      </div>
+      <button class="rweet-box--rweet-button">Rweet</button>
+  </div>
+
+
+<!--  <h1>New rweet</h1>-->
+
+
+
+  <div>
+    <%= link_to "Back to rweets", rweets_path %>
+  </div>
 </div>
