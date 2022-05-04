@@ -30,9 +30,14 @@
   <% end %>
 
   <p>
-    <%= form.label :body%>
-    <br>
-    <%= form.text_field :body, :id => 'body'  %>
+    <%#= form.label :body%>
+<!--    <br>-->
+
+<!--    <input type="text" placeholder="What's new?">-->
+
+
+    <%= form.text_field :body, placeholder: "What's new?", :id => 'body'%>
+
   </p>
 
   <div class="actions">
