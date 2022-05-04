@@ -1,0 +1,35 @@
+
+.display-flex{
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    display: flex;
+    margin-left: 1200px;
+    color: blue;
+}
+
+.loginsign {
+    display: flex;
+    justify-content: right;
+    padding-right: 30rem;
+    padding-top: 5rem;
+}
+
+.photoacceuil {
+    inset: 0px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.block1 {
+    background-color: rebeccapurple;
+}
+
+.block2 {
+    background-color: black;
+}
+

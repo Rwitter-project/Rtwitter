@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @rweet %>
+
+<div>
+  <!--  <%#= link_to "Edit this rweet", edit_rweet_path(@rweet) %> |-->
+  <%= link_to "Back to rweets", rweets_path %>
+
+  <p><%= @rweet.likes.count %> <%= (@rweet.likes.count) <= 1 ? 'Like' : 'Likes' %></p>
+
+  <% pre_like = @rweet.likes.find { |like| like.user_id == current_user.id } %>
+  <% if pre_like %>
+    <%= button_to 'Unlike', rweet_like_path(@rweet, pre_like), method: :delete %>
+  <% else %>
+    <%= button_to 'Like', rweet_likes_path(@rweet), method: :post %>
+  <% end %>
+
+  <% if current_user == @rweet.user %>
+    <%= button_to "Destroy this rweet", @rweet, method: :delete %>
+  <% end %>
+
+  <div>
+    <div>
+      <p>Comments</p>
+      <%= form_with(model: [@rweet, @rweet.comments.build]) do |f| %>
+        <div>
+          <%= f.label 'New comment' %>
+          <%= f.text_area :body, class: 'form-control' %>
+        </div>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render @rweet.comments %>
+
+</div>

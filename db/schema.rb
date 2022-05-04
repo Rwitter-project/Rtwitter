@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_29_095119) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_03_203932) do
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "rweet_id"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "rweet_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rweet_id"], name: "index_likes_on_rweet_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "rweets", force: :cascade do |t|
     t.integer "user_id"
     t.string "body"
@@ -37,12 +54,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_29_095119) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.string "description"
+    t.string "location"
+    t.string "certified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "likes", "rweets"
+  add_foreign_key "likes", "users"
 end
