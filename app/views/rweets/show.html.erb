@@ -18,4 +18,20 @@
   <% if current_user == @rweet.user %>
     <%= button_to "Destroy this rweet", @rweet, method: :delete %>
   <% end %>
+
+  <div>
+    <div>
+      <p>Comments</p>
+      <%= form_with(model: [@rweet, @rweet.comments.build]) do |f| %>
+        <div>
+          <%= f.label 'New comment' %>
+          <%= f.text_area :body, class: 'form-control' %>
+        </div>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render @rweet.comments %>
+
 </div>
