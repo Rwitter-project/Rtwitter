@@ -29,13 +29,7 @@
 
     Rweet:<br><br>
     <% @user.rweets.each do |rweet| %>
-
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <p class="card-text"><%= rweet.body %></p>
-          <a><%= link_to "See More", rweet_path(rweet.id), :method => :get %></a>
-        </div>
-      </div>
+      <%= link_to "See More", rweet_path(rweet.id), :method => :get %>
     <% end %>
 
     <% if @user.username == current_user.username %>
