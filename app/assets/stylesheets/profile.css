@@ -31,7 +31,7 @@
 
 .top {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -79,7 +79,7 @@
 
 .logo-right {
     padding-top: 30px;
-    padding-left: 300px;
+    padding-left: 470px;
 }
 
 .rweet-post {
