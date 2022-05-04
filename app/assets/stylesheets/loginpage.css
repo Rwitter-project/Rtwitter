@@ -1,7 +1,15 @@
-body{
+body.fix{
     background-color: black;
     color: white;
     overflow: hidden;
+
+
+    display: block;
+    height: auto;
+    max-width: 1300px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 0;
 }
 .text-endend{
     font-size: 2rem;

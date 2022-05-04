@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css">
+
+<body class="fix">
+
 <div class="login">
   <h2>Log In</h2>
 </div>
@@ -23,9 +26,9 @@
 
   <% if devise_mapping.rememberable? %>
     <div class="remember_me">
-    <div class="field">
-      <%= f.check_box :remember_me %>
-    </div>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+      </div>
       <%= f.label :remember_me %>
     </div>
   <% end %>
@@ -35,3 +38,5 @@
     <%= f.submit "Log in", :class => "btn shadow-1 red light-1 light-1 rounded-4" %>
   </div>
 <% end %>
+
+</body>
