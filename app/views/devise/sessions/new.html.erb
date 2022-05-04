@@ -1,26 +1,42 @@
-<h2>Log in</h2>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css">
 
+<body class="fix">
+
+<div class="login">
+  <h2>Log In</h2>
+</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="email">
+      <%= f.label :email %><br/>
+    </div>
+    <div class="element">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", :class => "form-control rounded-1" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class="password">
+      <%= f.label :password %><br/>
+    </div>
+    <div class="element">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", :class => "form-control rounded-1" %>
+    </div>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
+    <div class="remember_me">
+      <div class="field">
+        <%= f.check_box :remember_me %>
+      </div>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+
+    <%= f.submit "Log in", :class => "btn shadow-1 red light-1 light-1 rounded-4" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</body>

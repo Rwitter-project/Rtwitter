@@ -1,47 +1,76 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css">
+<link rel="stylesheet" href="../../assets/stylesheets/loginpage.css">
 
+<body class="fix">
 
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, :class => "form-control rounded-1" %>
+  <div class="signup">
+    <h2>Sign up</h2>
   </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
+    <div class="field">
+      <div class="firt_name">
+        <%= f.label :first_name %><br/>
+      </div>
+      <div class="element">
+        <%= f.text_field :first_name, placeholder: "First_name", :class => "form-control rounded-1" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+    <div class="field">
+      <div class="last_name">
+        <%= f.label :last_name %><br/>
+      </div>
+      <div class="element">
+        <%= f.text_field :last_name, placeholder: "Last_name", :class => "form-control rounded-1" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <div class="username">
+        <%= f.label :username %><br/>
+      </div>
+      <div class="element">
+        <%= f.text_field :username, placeholder: "Username", :class => "form-control rounded-1" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <div class="email">
+        <%= f.label :email %><br/>
+      </div>
+      <div class="element">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", :class => "form-control rounded-1" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <div class="password">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          </div>
+        <% end %><br/>
+        <div class="element">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", :class => "form-control rounded-1" %>
+        </div>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <div class="password_confirmation">
+        <%= f.label :password_confirmation %><br/>
+      </div>
+      <div class="element">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password_confirmation", :class => "form-control rounded-1" %>
+      </div>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit "Sign up", :class => "btn shadow-1 red light-1 light-1 rounded-4 " %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</body>
