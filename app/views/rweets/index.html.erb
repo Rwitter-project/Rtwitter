@@ -1,47 +1,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 
-<p style="color: green"><%= notice %></p>
-
-<!--<div class="display-flex">-->
-<!--  <div class="nav-section">-->
-<!--    <p>Accueil</p>-->
-<!--    <p>Profile</p>-->
-<!--  </div>-->
-
-<!--  <div class="feed">-->
-
-<!--    <h1>Accueil</h1>-->
-
-<%#= link_to "New rweet", new_rweet_path %>
-
-<!--    <div id="rweets">-->
-<%# @rweets.each do |rweet| %>
-<!--        <div class="card shadow-1 white">-->
-<!--          <div class="card-header"><%#= User.find(rweet.user.id).username %>-->
-<!--            <p><%#= time_ago_in_words(rweet.created_at) %></p></div>-->
-<!--          <div class="card-content">-->
-<!--            <p><%#= rweet.body %></p>-->
-<!--          </div>-->
-<!--          <div class="card-footer"><%#= rweet.likes.count %> <%#= (rweet.likes.count) <= 1 ? 'Like' : 'Likes' %></div>-->
-<%#= link_to "See More", rweet_path(rweet.id), :method => :get %>
-<!--        </div>-->
-<%# end %>
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
+<p style="display: none"><%= notice %></p>
 
 <!-- beginning of sidebar -->
 
+<body style="background-color: #111;position: relative;left: 300px;">
 <div class="sidebar">
-  <div class="sidebarOption active">
-    <span class="material-symbols-outlined"> home </span>
-    <h2><%= link_to "Home", rweets_path %></h2>
+  <%= image_tag("rwitter-logo.png", size: "40x40", style: "position: relative;left: 16px;") %>
 
-
-  </div>
+  <%= link_to rweets_path do %>
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> home </span>
+      <h2><span>Home</span></h2>
+    </div>
+  <% end %>
 
   <div class="sidebarOption active">
     <span class="material-symbols-outlined"> search </span>
@@ -68,26 +41,29 @@
     <h2>Lists</h2>
   </div>
 
-  <div class="sidebarOption active">
-    <span class="material-symbols-outlined"> perm_identity </span>
-    <h2>Profile</h2>
-  </div>
+  <%= link_to url_for(root_url+current_user.username) do %>
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> perm_identity </span>
+      <h2><span>Profile</span></h2>
+    </div>
+  <% end %>
 
-  <div class="sidebarOption active">
-    <span class="material-symbols-outlined"> more_horiz </span>
-    <h2>More</h2>
-  </div>
+  <%= link_to logout_path do %>
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> more_horiz </span>
+      <h2><span>Log Out</span></h2>
+    </div>
+  <% end %>
 
-<button class="sidebar-rweet">
-  <%= link_to "Rweet", new_rweet_path %>
-</button>
+  <%= link_to new_rweet_path do %>
+    <button class="sidebar-rweet">Rweet </button>
+  <% end %>
 
-<!--  <button class="sidebar-rweet">Rweet</button>-->
 </div>
 
-<!-- end of sidebar -->
 
 <div class="feed">
+
   <div class="feed_header">
     <h2>Home</h2>
   </div>
@@ -98,7 +74,7 @@
         <%= image_tag("profile.png", alt: "Example Image", class:"img") %>
 <!--        <span class="material-symbols-outlined"> account_circle </span>-->
 
-            <input type="text" placeholder="What's new?">
+            <input type="text" placeholder="What's new?" style="padding-left: 5px;">
 
 
         <%#= render "form", rweet: @rweet %>
@@ -107,7 +83,6 @@
       <button class="rweet-box--rweet-button">Rweet</button>
     </form>
   </div>
-
 
   <% @rweets.each do |rweet| %>
 
@@ -136,7 +111,7 @@
           <span class="material-symbols-outlined"> publish </span>
         </div>
       </div>
-      <%= link_to "See More", rweet_path(rweet.id), :method => :get %>
+      <%= link_to "See More", rweet_path(rweet.id), :method => :get,style: "position: relative;top: 30px;right: 230px;text-decoration: underline;" %>
     </div>
 
 
@@ -151,8 +126,6 @@
 <%#= link_to "See More", rweet_path(rweet.id), :method => :get %>
 <!--          </div>-->
 <% end %>
-
-
 
   <div class="post">
     <div class="post_avatar">
@@ -184,3 +157,4 @@
   </div>
 
 </div>
+</body>

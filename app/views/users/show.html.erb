@@ -1,67 +1,130 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.1/dist/axentix.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
 <% if @user.nil? %>
   No user found with this name.
 <% else %>
-  <body style="background-color: #111;">
-  <div class="split left">
-    <div class="top">
-      <h3 style="color: white"><%= link_to 'Home', root_path, :class => 'navbar-link' %></h3>
-      <h3 style="color: white;"><%= link_to 'Profile', url_for(root_url + current_user.username), :class => 'navbar-link' %></h3>
-    </div>
-  </div>
+  <body style="background-color: #111;position: relative;left: 300px;">
+  <div class="sidebar">
+    <%= image_tag("rwitter-logo.png", size: "40x40", style: "position: relative;left: 16px;") %>
 
-  <div class="split right">
-    <div>
-      <div class="grix xs1" style="color: white">
-        <div class="profile" style="border: 1px solid white;">
-          <div> <%= image_tag("/images/banner.png", size: "948x200") %></div>
-          <div class="grix xs3">
-            <div class="logo"> <%= image_tag("/images/avatar_logo_#{@user.id}.png", size: "100x100", :style => "border-radius: 50%") %></div>
-            <div class="logo-right col-xs2" >
-              <% if @user.username == current_user.username %><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn shadow-1 rounded-1 blue' %><% end %>
-            </div>
-          </div>
-          <div class="username">
-            <%= @user.username %> |
-            <% if @user.certified == nil %>
-              <%= "Certified: No" %>
-            <% else %>
-              <%= "Certified: " %><%= @user.certified %>
-            <% end %>
-          </div>
-          <div class="IdUsername">
-            @<%= @user.username.downcase %>
-          </div>
-          <div class="description">
-            <% if @user.description == nil %>
-              <%= "No description" %>
-            <% else %>
-              <%= @user.description %>
-            <% end %></div>
-          <div class="other">
-            <% if @user.location == nil %>
-              <%= "No location" %>
-            <% else %>
-              City: <%= @user.location %>
-            <% end %> |
-
-            <% if @user.confirmed_at != nil %>
-              Joined Twitter in <%= @user.confirmed_at.to_formatted_s(:month_and_year) %>
-            <% end %>
-          </div>
-        </div>
-        <div class="rweet">
-          <% @user.rweets.each do |rweet| %>
-            <div class="rweet-post"><%= User.find(rweet.user.id).username %><br>
-              <%= rweet.body %><br><br>
-              <%= rweet.likes.count %> <%= (rweet.likes.count) == 1 ? 'Like' : 'Likes' %><br>
-              <%= link_to "See More", rweet_path(rweet.id), :method => :get, style: "text-decoration: underline;" %>
-            </div>
-          <% end %>
-        </div>
+    <%= link_to rweets_path do %>
+      <div class="sidebarOption active">
+        <span class="material-symbols-outlined"> home </span>
+        <h2><span>Home</span></h2>
       </div>
+    <% end %>
+
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> search </span>
+      <h2>Explore</h2>
     </div>
+
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> notifications_none </span>
+      <h2>Notification</h2>
+    </div>
+
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> mail_outline </span>
+      <h2>Messages</h2>
+    </div>
+
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> bookmark_border </span>
+      <h2>Bookmarks</h2>
+    </div>
+
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> list_alt </span>
+      <h2>Lists</h2>
+    </div>
+
+    <%= link_to url_for(root_url+current_user.username) do %>
+      <div class="sidebarOption active">
+        <span class="material-symbols-outlined"> perm_identity </span>
+        <h2><span>Profile</span></h2>
+      </div>
+    <% end %>
+
+    <%= link_to logout_path do %>
+      <div class="sidebarOption active">
+        <span class="material-symbols-outlined"> more_horiz </span>
+        <h2><span>Log Out</span></h2>
+      </div>
+    <% end %>
+
   </div>
 
+  <div class="feed">
+
+    <div class="feed_header">
+      <span class="material-symbols-outlined" style="position: relative;top: 3px;right: 15px;">arrow_back</span><span style="font-size: 24px"><%= @user.username %></span><br>
+    </div>
+    <div>
+      <%= image_tag("/images/banner.png", size: "619x199") %>
+    </div>
+    <div class="grix xs3" style="height: 75px;">
+      <div class="logo"> <%= image_tag("/images/avatar_logo_#{@user.id}.png", size: "150x150", :style => "border-radius: 50%;position: relative;top: -95px;border: 5px solid black;left: 50px;") %></div>
+      <div class="logo-right col-xs2" >
+        <% if @user.username == current_user.username %><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn rounded-4 white btn-press' , style: "style=font-size: 16px;position: relative;right: -250px;top: 10px;"%><% end %></div>
+    </div>
+
+    <div class="username" style="position: relative;left: 35px;top:-12px;">
+      <span style="font-weight: bold;font-size: 21px;"><%= @user.username %></span><br>
+      @<%= @user.username.downcase %>
+    </div>
+
+    <div class="description" style="position: relative;left: 35px;">
+      <% if @user.description == nil %>
+        <%= "No description" %>
+      <% else %>
+        <%= @user.description %>
+      <% end %>
+    </div>
+
+    <div class="other" style="position: relative;left: 35px;">
+      <% if @user.location == nil %>
+        <%= "No location" %>
+      <% else %>
+        <span class="material-symbols-outlined" style="position: relative;top: 4px;">apartment </span> City: <%= @user.location %>
+      <% end %>
+      <% if @user.confirmed_at != nil %>
+        <span class="material-symbols-outlined" style="position: relative;top: 4px;">calendar_month </span> Joined Twitter in <%= @user.confirmed_at.to_formatted_s(:month_and_year) %>
+      <% end %>
+    </div>
+    <div style="border: 1px solid var(--rwitter-background);position: relative;top: 10px;"></div>
+
+    <% @user.rweets.each do |rweet| %>
+      <div class="post">
+        <div class="post_avatar">
+          <%= image_tag("profile.png", alt: "Example Image", class:"img") %>
+        </div>
+
+        <div class="post_body">
+          <div class="post_header">
+            <div class="post_header_text">
+              <h3><%= User.find(rweet.user.id).username %>
+                <span class="post_header_special">
+              <span class="material-symbols-outlined post_badge"> verified </span>@michel  <%= time_ago_in_words(rweet.created_at) %>
+            </span>
+              </h3>
+            </div>
+            <div class="post_header_description">
+              <p><%= rweet.body %></p>
+            </div>
+          </div>
+
+          <div class="post_footer">
+            <span class="material-symbols-outlined"> repeat </span>
+            <%= rweet.likes.count %><span class="material-symbols-outlined">favorite_border </span>
+            <span class="material-symbols-outlined"> publish </span>
+          </div>
+        </div>
+        <%= link_to "See More", rweet_path(rweet.id), :method => :get, style: "position: relative;top: 30px;right: 230px;text-decoration: underline;" %>
+      </div>
+    <% end %>
+
+  </div>
   </body>
 <% end %>

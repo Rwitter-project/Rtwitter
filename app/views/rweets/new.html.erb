@@ -7,12 +7,14 @@
 
 
 <!-- beginning of sidebar -->
-
+<body style="background-color: #111;position: relative;left: 300px;">
 <div class="sidebar">
-  <div class="sidebarOption active">
-    <span class="material-symbols-outlined"> home </span>
-    <h2>Home</h2>
-  </div>
+  <%= link_to rweets_path do %>
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> home </span>
+      <h2><span>Home</span></h2>
+    </div>
+  <% end %>
 
   <div class="sidebarOption active">
     <span class="material-symbols-outlined"> search </span>
@@ -39,10 +41,12 @@
     <h2>Lists</h2>
   </div>
 
-  <div class="sidebarOption active">
-    <span class="material-symbols-outlined"> perm_identity </span>
-    <h2>Profile</h2>
-  </div>
+  <%= link_to url_for(root_url+current_user.username) do %>
+    <div class="sidebarOption active">
+      <span class="material-symbols-outlined"> perm_identity </span>
+      <h2><span>Profile</span></h2>
+    </div>
+  <% end %>
 
   <div class="sidebarOption active">
     <span class="material-symbols-outlined"> more_horiz </span>
@@ -88,3 +92,4 @@
     <%= link_to "Back to rweets", rweets_path %>
   </div>
 </div>
+</body>
