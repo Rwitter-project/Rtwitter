@@ -1,20 +1,21 @@
 body{
     background-color: black;
     color: white;
+
     
 }
 .text-endend{
     font-size: 2rem;
-    margin-bottom: 110px;
+    margin-bottom: 32px;
 }
 .text-end{
     font-size: 4.75rem;
-    margin-bottom: 50px;
+    margin-bottom: 29px;
 
 }
 .title{
     position: relative;
-    bottom: 735px;
+    bottom: 838px;
     padding-left:921px;
 }
 .image{
@@ -25,6 +26,11 @@ body{
     position: relative;
     width: 83px;
     margin-left: 454px;
-    bottom: 698px;
-
+    bottom: 640px;
+}
+.twitter2{
+    position: relative;
+    bottom: 592px;
+    margin-left: 147px;
+    width: 321px;
 }
