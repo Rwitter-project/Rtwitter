@@ -1,8 +1,7 @@
 body{
     background-color: black;
     color: white;
-
-    
+    overflow: hidden;
 }
 .text-endend{
     font-size: 2rem;

@@ -1,0 +1,29 @@
+.login{
+    position: relative;
+    padding-left: 700px;
+    color: #F55050;
+}
+.element{
+    position: relative;
+    width: 50%;
+    margin-left: 25%;
+}
+.email {
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+}
+.password{
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+}
+.remember_me{
+
+    padding-left: 560px;
+}
+

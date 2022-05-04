@@ -1,0 +1,68 @@
+.signup{
+    padding-left: 700px;
+    color: #F55050;
+}
+.actions{
+    padding-left: 700px;
+    position: relative;
+    bottom: -17px;
+
+
+}
+.field{
+    position: relative;
+    padding-top: 30px;
+
+}
+.password_confirmation{
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+}
+.firt_name{
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+
+}
+.last_name{
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+}
+.username{
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+}
+.email{
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+}
+.password{
+    position: relative;
+    padding-left: 700px;
+    bottom: 11px;
+    color: #F55050;
+    font-weight: bold;
+}
+.element{
+    width: 50%;
+    margin-left: 25%;
+}
+.new_confirmation_path{
+    position: relative;
+    padding-left: 103px;
+    bottom: 46px;
+}
