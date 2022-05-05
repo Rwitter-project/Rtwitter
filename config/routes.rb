@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'logout' => 'sessions#destroy'
-  get 'posts' => 'rweets#index'
+  get 'home' => 'rweets#index'
   get ':username' => 'users#show'
   delete 'post/:id' => 'rweets#destroy'
 end

@@ -1,20 +1,3 @@
-<%#= form_with(model: rweet) do |form| %>
-  <%# if rweet.errors.any? %>
-<!--    <div style="color: red">-->
-<!--      <h2><%#= pluralize(rweet.errors.count, "error") %> prohibited this rweet from being saved:</h2>-->
-
-<!--      <ul>-->
-        <%# rweet.errors.each do |error| %>
-<!--          <li><%#= error.full_message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-
-<!--  <div>-->
-    <%#= form.submit %>
-<!--  </div>-->
-<%# end %>
 
 <%= form_with(model: rweet, local: true) do |form| %>
   <% if rweet.errors.any? %>
@@ -30,17 +13,12 @@
   <% end %>
 
   <p>
-    <%#= form.label :body%>
-<!--    <br>-->
 
-<!--    <input type="text" placeholder="What's new?">-->
-
-
-    <%= form.text_field :body, placeholder: "What's new?", :id => 'body'%>
+    <%= form.text_field :body, placeholder: "What's new?", :id => 'body' , style: "position: relative;top: 11px;padding: 4px;"%>
 
   </p>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions ">
+    <%= form.submit style: "width: 157px;background-color: var(--rwitter-color);border: none;color: white;font-weight: 900;border-radius: 30px;height: 40px;margin-top: 20px;margin-left: auto;position: relative;left: -427px;top: -64px;" %>
   </div>
 <% end %>
